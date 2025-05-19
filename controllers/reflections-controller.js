@@ -3,7 +3,7 @@ import configuration from "../knexfile.js";
 
 const knex = initKnex(configuration);
 
-const getDefaultReflection = async(_req, res) => {
+const getDefault = async(_req, res) => {
     try {
         const defaultData = await knex('reflections')
             .first();
@@ -14,7 +14,7 @@ const getDefaultReflection = async(_req, res) => {
     }
 }
 
-const getAllReflections = async(_req, res) => {
+const getAll = async(_req, res) => {
     try {
         const defaultData = await knex('reflections');
         res.status(200).json(defaultData);
@@ -24,7 +24,28 @@ const getAllReflections = async(_req, res) => {
     }
 }
 
+const post = async(req, res) => {
+    try {
+        if(!req.body.message) {
+            return res.status(400).json({
+            message: "Please enter a message"
+          });
+        }
+        const updateData = await knex('reflections').insert(req.body);
+        const newPost = updateData[0];
+
+        const result = await knex("reflections").where({id: newPost})
+        console.log(result)
+        res.status(200).send(result);
+    }
+    catch(error) {
+        console.error(error);
+        res.status(400).send("ERROR");
+    }
+}
+
 export {
-    getDefaultReflection,
-    getAllReflections
+    getDefault,
+    getAll,
+    post
 }
