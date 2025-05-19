@@ -6,7 +6,7 @@ const knex = initKnex(configuration);
 const getQuotes = async (_req, res) => {
     try {
         const data = await knex('quotes');
-        res.json(data);
+        res.status(200).json(data);
     }
     catch(error) {
         console.error(error);
