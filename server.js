@@ -4,10 +4,10 @@ const app = express();
 
 const PORT = process.env.PORT || 5050;
 
+import quoteRouter from "./routes/quotes-routes.js";
+
 // basic home route
-app.get("/", (req, res) => {
-  res.send("Welcome to my API");
-});
+app.use("/quotes", quoteRouter);
 
 app.listen(PORT, () => {
   console.log(`App now running at http://localhost:${PORT}`);
