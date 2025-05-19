@@ -1,20 +1,9 @@
-import initKnex from "knex";
-import configuration from "../knexfile.js";
-
 import express from "express";
+import * as quoteController from "../controllers/quotes-controller.js";
 
-const knex = initKnex(configuration);
 const quoteRouter = express.Router();
 
 quoteRouter.route('/')
-    .get(async (req, res) => {
-    try {
-        const data = await knex('quotes');
-        res.json(data);
-    }
-    catch(error) {
-        console.error(error);
-    }
-})
+    .get(quoteController.getQuotes)
 
 export default quoteRouter;
