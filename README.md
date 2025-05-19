@@ -121,21 +121,12 @@ _To be added during design phase._
 - Problem Page: curated articles, videos, support links
 - Design: transitions, responsiveness, fire animation and sound
 
-### Phase 3 – Stretch Goals
+### Phase 3 – Stretch Goals / Future Implementations
 
 - Quote of the Day feature
 - AI-powered emotional reframing
-- Mood-to-Media space: visuals, sounds, quotes
+- Mood-based immersive space: visuals, sounds, quotes
 - Local event/volunteer integration (Eventbrite or VolunteerMatch)
 - Kindness Stories page
 - User authentication
 - Data visualization: social media vs. isolation graphs
-
-## Future Implementations
-
-- Graph of social media growth vs. isolation
-- Kindness story sharing page
-- Mood-based immersive spaces (visuals, audio, quotes)
-- Local event/volunteer opportunity feed
-- AI-generated perspective tool
-- Daily quote feature from backend or API
