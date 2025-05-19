@@ -11,11 +11,14 @@ export function up(knex) {
       table.string("title").notNullable();
       table.text("content").notNullable();
       table.integer("likes").notNullable().defaultTo(0);
+      table.text("url").notNullable();
     })
     .createTable("videos", (table) => {
       table.increments("id").primary();
       table.string("title").notNullable();
       table.text("description").notNullable();
+      table.integer("likes").notNullable().defaultTo(0);
+      table.text("url").notNullable();
     })
     .createTable("resources", (table) => {
       table.increments("id").primary();

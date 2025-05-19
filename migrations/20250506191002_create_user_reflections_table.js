@@ -6,9 +6,8 @@ export function up(knex) {
     return knex.schema
       .createTable("user_reflections", (table) => {
         table.increments("id").primary();
-        table.string("title").notNullable();
-        table.string("content", 1000).notNullable();
-        table.integer("likes").notNullable().defaultTo(0);
+        table.string("name");
+        table.text("message").notNullable();
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
           .timestamp("updated_at")

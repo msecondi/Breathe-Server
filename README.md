@@ -93,7 +93,7 @@ Describe your data and the relationships between the data points. You can show t
     QUOTES table (Landing Page)
     id
     author
-    text
+    content
 
     REFLECTIONS table (Landing Page)
     id
@@ -101,6 +101,11 @@ Describe your data and the relationships between the data points. You can show t
     message
     created_at
     updated_at
+
+    INTROSPECTIVE table (Introspection Page)
+    id
+    date
+    timestamp
 
     RESOURCES table (Problem Area Page)  
     id
@@ -111,20 +116,15 @@ Describe your data and the relationships between the data points. You can show t
     id
     title
     content
+    likes
     url
 
     VIDEOS table (Problem Area Page)
     id
     title
     description
+    likes
     url
-
-    INTROSPECTION table (Introspection Page)
-    id
-    name (optional)
-    message
-    timestamp
-
 
 ### Endpoints
 
