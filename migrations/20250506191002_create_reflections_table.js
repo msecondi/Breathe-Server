@@ -4,9 +4,9 @@
  */
 export function up(knex) {
     return knex.schema
-      .createTable("user_reflections", (table) => {
+      .createTable("reflections", (table) => {
         table.increments("id").primary();
-        table.string("name");
+        table.string("name").notNullable().defaultTo("Anonymous");
         table.text("message").notNullable();
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
@@ -20,5 +20,5 @@ export function up(knex) {
    * @returns { Promise<void> }
    */
   export function down(knex) {
-    return knex.schema.dropTable("user_reflections");
+    return knex.schema.dropTable("reflections");
   }

@@ -84,8 +84,8 @@ _To be added during design phase._
 
 ### Endpoints
 
-- `GET /humanity`
-- `POST /humanity`
+- `GET /reflections`
+- `POST /reflections`
 - `GET /resources`
 - `GET /resources/help`
 - `POST /fire-feed`
@@ -100,7 +100,7 @@ _To be added during design phase._
 - Create/migrate tables: `quotes`, `reflections`, `introspections`
 - Endpoints:
   - `GET /quotes`
-  - `GET/POST /humanity`
+  - `GET/POST /reflections`
   - `POST /fire-feed`
   - `GET /fire-feed/count`
 
