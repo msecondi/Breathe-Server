@@ -5,8 +5,7 @@ const knex = initKnex(configuration);
 
 const getDefault = async(_req, res) => {
     try {
-        const defaultData = await knex('reflections')
-            .first();
+        const defaultData = await knex('reflections').first();
         res.status(200).json(defaultData);
     }
     catch(error) {
@@ -34,8 +33,7 @@ const post = async(req, res) => {
         const updateData = await knex('reflections').insert(req.body);
         const newPost = updateData[0];
 
-        const result = await knex("reflections").where({id: newPost})
-        console.log(result)
+        const result = await knex("reflections").where({id: newPost});
         res.status(200).send(result);
     }
     catch(error) {

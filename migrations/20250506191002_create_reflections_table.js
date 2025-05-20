@@ -6,7 +6,7 @@ export function up(knex) {
     return knex.schema
       .createTable("reflections", (table) => {
         table.increments("id").primary();
-        table.string("name").defaultTo("Anonymous");
+        table.string("name").notNullable().defaultTo("Anonymous");
         table.text("message").notNullable();
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
