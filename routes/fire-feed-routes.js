@@ -15,7 +15,7 @@ const burnLimiter = rateLimit({
 });
 
 fireFeedRouter.route('/')
-    .post(burnLimiter, fireFeedController.burnWorries);
+    .post(burnLimiter, fireFeedController.burnWorries); // with limiter middleware
 
 fireFeedRouter.route('/count')
     .get(fireFeedController.getCount);

@@ -70,8 +70,8 @@ _To be added during design phase._
 **REFLECTIONS**
 - id, name (optional), message, created_at, updated_at
 
-**INTROSPECTIVE**
-- id, date, timestamp
+**BURN COUNT**
+- date(primary), count
 
 **RESOURCES**
 - id, article_id, video_id
@@ -97,7 +97,7 @@ _To be added during design phase._
 
 **Backend**
 - Set up Express server + MySQL via Knex
-- Create/migrate tables: `quotes`, `reflections`, `introspections`
+- Create/migrate tables: `quotes`, `reflections`, `burn_count`
 - Endpoints:
   - `GET /quotes`
   - `GET/POST /reflections`
@@ -130,3 +130,4 @@ _To be added during design phase._
 - Kindness Stories page
 - User authentication
 - Data visualization: social media vs. isolation graphs
+- Data visualization: daily 'burning' trends (user interactivity with fire-feed over time)
