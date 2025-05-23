@@ -34,9 +34,9 @@ const burnWorries = async (_req, res) => {
       // increment today's count
       await knex("burn_count")
         .where({ date: today })
-        .increment("count", 1);
+        .increment("count", 1); //increment count
     } else {
-      // insert new row for today since this is the first entry
+      // insert new row for today since this is the first entry and set count to 1
       await knex("burn_count").insert({ date: today, count: 1 });
     }
 
