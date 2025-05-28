@@ -25,9 +25,9 @@ const getAll = async(_req, res) => {
 
 const post = async(req, res) => {
     try {
-        if(!req.body.message) {
+        if(typeof req.body !== 'object' ||!req.body.message) {
             return res.status(400).json({
-            message: "Please enter a message"
+            message: "Please enter a valid message in JSON format"
           });
         }
         const updateData = await knex('reflections').insert(req.body);

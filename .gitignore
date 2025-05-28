@@ -23,3 +23,6 @@ pids
 
 # OS specific files
 .DS_Store
+
+.vscode
+# Coverage directory used by tools like istanbul
