@@ -17,7 +17,7 @@ const getCount = async (_req, res) => {
     res.status(200).json({ count: result ? result.count : 0 });
   } catch (error) {
     console.error("Error getting count:", error);
-    res.status(500).json({ error: "Failed to retrieve count" });
+    res.status(500).json({ error: "failed to retrieve count" });
   }
 };
 
@@ -40,10 +40,10 @@ const burnWorries = async (_req, res) => {
       await knex("burn_count").insert({ date: today, count: 1 });
     }
 
-    res.status(201).json({ success: "Released into the flame." });
+    res.status(201).json({ success: "released into the flame" });
   } catch (error) {
     console.error("Error inserting burn event:", error);
-    res.status(500).json({ error: "Failed to burn worries" });
+    res.status(500).json({ error: "failed to successfully burn thoughts" });
   }
 };
 
