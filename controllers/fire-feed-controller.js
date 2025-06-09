@@ -43,7 +43,7 @@ const burnWorries = async (_req, res) => {
     res.status(201).json({ success: "released into the flame" });
   } catch (error) {
     console.error("Error inserting burn event:", error);
-    res.status(500).json({ error: "failed to successfully burn thoughts" });
+    res.status(500).json({ error: "failed to offer thoughts to the flame" });
   }
 };
 
