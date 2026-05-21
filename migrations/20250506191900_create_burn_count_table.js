@@ -5,7 +5,7 @@
 export function up(knex) {
   return knex.schema.createTable("burn_count", (table) => {
     table.date("date").primary(); // one row per day
-    table.integer("count").notNullable().defaultTo(1);
+    table.integer("count").notNullable().defaultTo(0);
   });
 }
 

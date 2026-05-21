@@ -8,6 +8,7 @@ export default {
     database: process.env.DB_NAME,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    charset: "utf8",
+    // utf8mb4 is required for 4-byte characters such as emoji.
+    charset: "utf8mb4",
   },
 };

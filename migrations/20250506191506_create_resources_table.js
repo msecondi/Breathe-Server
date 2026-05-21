@@ -7,6 +7,8 @@ export function up(knex) {
 
   return knex.schema
     .createTable("articles", (table) => {
+      table.charset("utf8mb4");
+      table.collate("utf8mb4_unicode_ci");
       table.increments("id").primary();
       table.string("title").notNullable();
       table.text("content").notNullable();
@@ -14,6 +16,8 @@ export function up(knex) {
       table.text("url").notNullable();
     })
     .createTable("videos", (table) => {
+      table.charset("utf8mb4");
+      table.collate("utf8mb4_unicode_ci");
       table.increments("id").primary();
       table.string("title").notNullable();
       table.text("description").notNullable();
@@ -21,6 +25,8 @@ export function up(knex) {
       table.text("url").notNullable();
     })
     .createTable("resources", (table) => {
+      table.charset("utf8mb4");
+      table.collate("utf8mb4_unicode_ci");
       table.increments("id").primary();
       table
         .integer("article_id")
