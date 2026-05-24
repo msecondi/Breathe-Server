@@ -34,7 +34,7 @@ const post = async(req, res) => {
     try {
         if(typeof req.body !== 'object') {
             return res.status(400).json({
-                message: "Please enter a valid message in JSON format."
+                message: "please enter a valid message in JSON format"
             });
         }
 
@@ -43,13 +43,13 @@ const post = async(req, res) => {
 
         if (!message) {
             return res.status(400).json({
-                message: "Please enter a reflection before submitting."
+                message: "please enter a reflection before submitting"
             });
         }
 
         if (message.length > MAX_REFLECTION_LENGTH) {
             return res.status(400).json({
-                message: `Please keep your reflection under ${MAX_REFLECTION_LENGTH} characters.`
+                message: `please keep your reflection under ${MAX_REFLECTION_LENGTH} characters`
             });
         }
 
@@ -73,7 +73,7 @@ const post = async(req, res) => {
     catch(error) {
         console.error(error);
         res.status(500).json({
-            message: "Unable to save reflection right now."
+            message: "unable to save reflection right now"
         });
     }
 }
