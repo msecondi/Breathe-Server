@@ -40,6 +40,7 @@ const post = async(req, res) => {
 
         const message = typeof req.body.message === "string" ? req.body.message.trim() : "";
         const name = typeof req.body.name === "string" ? req.body.name.trim() : "";
+        const mode = typeof req.body.reflection_mode === "string" ? req.body.reflection_mode.trim() : "";
 
         if (!message) {
             return res.status(400).json({
@@ -59,6 +60,9 @@ const post = async(req, res) => {
 
         if (name) {
             payload.name = name;
+        }
+        if (mode) {
+            payload.reflection_mode = mode;
         }
 
         const updateData = await knex('reflections').insert(payload);
