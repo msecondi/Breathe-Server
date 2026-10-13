@@ -4,6 +4,13 @@ import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
 const MAX_REFLECTION_LENGTH = 2000;
 
+const ALLOWED_REFLECTION_MODES = [
+    "neutral",
+    "release",
+    "replenish",
+    "absorb"
+]
+
 const getDefault = async(_req, res) => {
     try {
         const defaultData = await knex('reflections').first();
@@ -32,7 +39,7 @@ const getAll = async(_req, res) => {
 
 const post = async(req, res) => {
     try {
-        if(typeof req.body !== 'object') {
+        if(!req.body || typeof req.body !== 'object' || Array.isArray(req.body)) {
             return res.status(400).json({
                 message: "please enter a valid message in JSON format"
             });
@@ -40,7 +47,8 @@ const post = async(req, res) => {
 
         const message = typeof req.body.message === "string" ? req.body.message.trim() : "";
         const name = typeof req.body.name === "string" ? req.body.name.trim() : "";
-        const mode = typeof req.body.reflection_mode === "string" ? req.body.reflection_mode.trim() : "";
+        //default to "neutral" if user does not submit with a mode selected.
+        const mode = typeof req.body.reflection_mode === "string" ? req.body.reflection_mode.trim().toLowerCase() : "neutral";
 
         if (!message) {
             return res.status(400).json({
@@ -61,8 +69,12 @@ const post = async(req, res) => {
         if (name) {
             payload.name = name;
         }
-        if (mode) {
+        if (ALLOWED_REFLECTION_MODES.includes(mode)) {
             payload.reflection_mode = mode;
+        } else {
+            return res.status(400).json( {
+                message: "please select a valid mode for reflection"
+            });
         }
 
         const updateData = await knex('reflections').insert(payload);
